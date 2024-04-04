@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package myservice.v1;
+
+option go_package = "grpc-template/api/v1;myservicepb";
+
+service GreetingService {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
