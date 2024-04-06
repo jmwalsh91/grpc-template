@@ -1,0 +1,13 @@
+# .air.toml
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./tmp/main ./cmd/server/"
+  bin = "tmp/main"
+  include = [ ".go", ".mod", ".env" ]
+  exclude = [ "tmp/*", "vendor/*" ]
+
+[log]
+  time_format = "2024-04-05 15:04:05"
+  level = "debug"
