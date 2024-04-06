@@ -3,6 +3,7 @@ package myservice
 import (
 	"context"
 	"fmt"
+	"log"
 	"net"
 
 	myservicepb "grpc-template/api/v1"
@@ -25,6 +26,9 @@ func StartGRPCServer(address string) error {
 	}
 	s := grpc.NewServer()
 	myservicepb.RegisterGreetingServiceServer(s, &server{})
+
+	log.Printf("gRPC server started on %s", address)
+
 	if err := s.Serve(lis); err != nil {
 		return fmt.Errorf("failed to serve: %v", err)
 	}
